@@ -1,7 +1,12 @@
+using YYA.Blog.UserSecrets.WebApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var topSecretPassword = builder.Configuration.GetValue<string>("TopSecretPassword");
 
+var spaceShipSettings = builder.Configuration.GetSection("SpaceShipSettings").Get<SpaceShipSettings>();
+
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
